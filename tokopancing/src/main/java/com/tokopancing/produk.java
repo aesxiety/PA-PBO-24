@@ -1,11 +1,5 @@
 package com.tokopancing;
 
-import java.util.UUID;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public abstract class produk {
     private String idProduk;
     private String nama;

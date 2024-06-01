@@ -1,6 +1,7 @@
 package com.tokopancing;
 
 public class detailTransaksi {
+    private String idDetail;
     private String idTransaksi;
     private String idProduk;
     private String namaProduk;
@@ -8,13 +9,17 @@ public class detailTransaksi {
     private int jumlahProduk;
     private double subTotalPembayaran;
 
-    public detailTransaksi(String idTransaksi, String idProduk, String namaProduk, double hargaProduk, int jumlahProduk) {
+    public detailTransaksi(String idDetail, String idTransaksi, String idProduk, String namaProduk, double hargaProduk, int jumlahProduk) {
+        this.idDetail = idDetail;
         this.idTransaksi = idTransaksi;
         this.idProduk = idProduk;
         this.namaProduk = namaProduk;
         this.hargaProduk = hargaProduk;
         this.jumlahProduk = jumlahProduk;
         this.subTotalPembayaran = hargaProduk * jumlahProduk;
+    }
+    public String getIdDetail() {
+        return idDetail;
     }
 
     public String getIdTransaksi() {
@@ -40,4 +45,6 @@ public class detailTransaksi {
     public double getSubTotalPembayaran() {
         return subTotalPembayaran;
     }
+
+    
 }

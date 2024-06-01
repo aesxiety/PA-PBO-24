@@ -4,19 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class mataKail extends produk {
-    private double ukuran;
-    public mataKail(String idProduk, String nama, String merek, double harga, double ukuran) {
-        super(idProduk,nama, merek, harga);
-        this.ukuran = ukuran;
-    }
-
-    public Double getUkuran(){
-        return ukuran;
-    }
-
-    public void setUkuran(double ukuran){
-        this.ukuran = ukuran;
+public class senar extends produk {
+    private double ketebalan ;
+    public senar(String idProduk, String nama, String merek, double harga, double ketebalan) {
+        super(idProduk, nama, merek, harga);
+        this.ketebalan = ketebalan;
     }
 
     public void saveToDB() {
@@ -30,9 +22,9 @@ public class mataKail extends produk {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO matakail (id_produk, ukuran) VALUES (?, ?)")) {
+            try (PreparedStatement pstmt = conn.prepareStatement("INSERT INTO senar (id_produk, ketebalan) VALUES (?, ?)")) {
                 pstmt.setString(1, getIdProduk());
-                pstmt.setDouble(2, getUkuran());
+                pstmt.setDouble(2, getKetebalan());
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -42,16 +34,11 @@ public class mataKail extends produk {
         }
     }
 
-    @Override
-    public void tampil() {
-        System.out.println("Mata Kail:");
-        System.out.println("Nama = " + getNama());
-        System.out.println("Merek = " + getMerek());
-        System.out.println("Harga = " + getHarga());
-        System.out.println("Ketebalan = " + getUkuran());
+    public double getKetebalan() {
+        return ketebalan;
     }
-    public void tampil(boolean detail){
-
+    public void setKetebalan(double ketebalan) {
+        this.ketebalan = ketebalan;
     }
-
+    
 }
